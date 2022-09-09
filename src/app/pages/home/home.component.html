@@ -1,0 +1,172 @@
+<ul class="list-unstyled">
+    <li>
+        <label>
+            <input type="radio" value="male" name="gender" [(ngModel)]="gender" />
+            male
+        </label>
+    </li>
+    <li>
+        <label>
+            <input type="radio" value="female" name="gender" [(ngModel)]="gender" />
+            female
+        </label>
+    </li>
+</ul>
+
+<ul class="list-unstyled">
+    <li *ngFor="let genderbutton of genderItems">
+        <label>
+            <input type="radio" value="male" (click)="genderModel.option = genderbutton"
+                [checked]="genderbutton === genderModel.option" />
+            {{genderbutton}}
+        </label>
+    </li>
+</ul>
+Selected option {{genderModel.option}}
+
+<a href="" onmouseover="document.bgColor = 'red'">This is anchor</a>
+<p>{{msg}}</p>
+
+<p>Unformatted date {{toDate}}</p>
+<p>formatted date {{toDate | date}}</p>
+<p>formatted date medium {{toDate | date:'medium'}}</p>
+<p>formatted date medium {{toDate | date:'medium' | uppercase}}</p>
+<p>formatted date short {{toDate | date:'short' | uppercase}}</p>
+<p>formatted date fullDate {{toDate | date:'fullDate'}}</p>
+<p>formatted date mediumDate {{toDate | date:'mediumDate'}}</p>
+<p>formatted date shortDate {{toDate | date:'shortDate'}}</p>
+<p>formatted date mediumTime {{toDate | date:'mediumTime'}}</p>
+<p>formatted date dd-MM-y {{toDate | date:'dd-MM-y'}}</p>
+<p>formatted date dd-MM-yy HH:mm {{toDate | date:'dd-MM-yy HH:mm'}}</p>
+
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel title="Simple">
+        <ng-template ngbPanelContent>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+            officia
+            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+            tempor,
+            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+            helvetica,
+            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+            Leggings
+            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+            accusamus
+            labore sustainable VHS.
+        </ng-template>
+    </ngb-panel>
+    <ngb-panel title="Simple2">
+        <ng-template ngbPanelTitle>
+            <span>&#9733; <b>Fancy</b> title &#9733;</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+            officia
+            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+            tempor,
+            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+            helvetica,
+            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+            Leggings
+            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+            accusamus
+            labore sustainable VHS.
+        </ng-template>
+    </ngb-panel>
+    <ngb-panel title="Disabled" [disabled]="true">
+        <ng-template ngbPanelContent>
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+            officia
+            aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
+            tempor,
+            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+            helvetica,
+            craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.
+            Leggings
+            occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+            accusamus
+            labore sustainable VHS.
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>
+
+<h2>{{radiotitle}}</h2>
+<ul>
+    <li>
+        <label *ngFor="let radiobutton of radioItems">
+            <input type="radio" name="option" (click)="model.option = radiobutton"
+                [checked]="radiobutton === model.option">
+            {{radiobutton}}
+        </label>
+    </li>
+</ul>
+
+<button (click)="model.option = 'option1'">
+    Set option #1
+</button>
+selected option {{model.option}}
+
+<div *ngIf="contentNitesh">Nitesh Khatri</div>
+<div *ngIf="contentSachin">Sachin Khatri</div>
+<div *ngIf="contentRahul">Rahul Khatri</div>
+<div *ngIf="contentVishal">Vishal Khatri</div>
+
+<div *ngIf="disabledFlag; else notDisabled" [ngStyle]="{'background-color':'red'}">asdad</div>
+<ng-template #disabledFlag>
+    <div [ngStyle]="{'background-color':'orange'}">Element is not disabled</div>
+</ng-template>
+
+<app-employee></app-employee>
+
+<app-users [example]="data1" [hero]="data2" [mom]="data3"></app-users>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Aciton</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal"
+                        (click)="onClick(user)">Show</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-modal1 [user]="selectedUser"></app-modal1>
+
+<div style="text-align:center">
+    <h1>
+        Welcome to {{ title }}!
+    </h1>
+
+    <p>{{fname | uppercase}}</p>
+    <p>{{lname | uppercase}}</p>
+    <p>{{age}}</p>
+    <p>{{4+5}}</p>
+    <p>{{4+5*10}}</p>
+    <img width="300" alt="Angular Logo"
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+    <li>
+        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+    </li>
+    <li>
+        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+    </li>
+    <li>
+        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+    </li>
+</ul>
