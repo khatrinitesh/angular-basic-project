@@ -1,3 +1,19 @@
+<app-employee-list [myinputMsg]="myInputMsg"></app-employee-list>
+
+<div *ngFor='let key of objectKeys(jsonObj)'>
+    Key: {{key}}
+
+    <div *ngFor='let obj of jsonObj[key]'>
+        {{ obj.title }}
+        {{ obj.desc }}
+    </div>
+    <hr />
+</div>
+
+<div *ngFor="let item of json" (click)='buttonOnClick($event)'>
+    {{item.host}}
+</div>
+<app-http></app-http>
 <ul class="list-unstyled">
     <li>
         <label>

@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 // library package installed
@@ -22,6 +23,10 @@ import { ClosablealertComponent } from './component/ngbootstrap/closablealert/cl
 import { CoursesComponent } from './pages/courses/courses.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { ScrollbacktopComponent } from './component/scrollbacktop/scrollbacktop.component';
+import { HttpComponent } from './http/http.component';
+import { MovileTableComponent } from './component/movile-table/movile-table.component';
+import { MovieDashboardComponent } from './component/movie-dashboard/movie-dashboard.component';
+import { ChildComponent } from './component/child/child.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +44,17 @@ import { ScrollbacktopComponent } from './component/scrollbacktop/scrollbacktop.
     CoursesComponent,
     ErrorComponent,
     ScrollbacktopComponent,
+    HttpComponent,
+    MovileTableComponent,
+    MovieDashboardComponent,
+    ChildComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

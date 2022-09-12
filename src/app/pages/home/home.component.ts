@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,6 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+
+  myInputMsg: string = "NITESH KHATRI"
+  myOutput: string = 'I am child component'
+
+  GetChildData(data) {
+    console.log(data)
+  }
+
+  private _url: string = 'https://jsonplaceholder.typicode.com/posts'
   contentNitesh: boolean = false;
   contentSachin: boolean = true;
   contentRahul: boolean = true;
@@ -22,8 +32,24 @@ export class HomeComponent implements OnInit {
     option: 'male'
   }
 
+  objectKeys = Object.keys;
+  jsonObj = {
+    '1': [{ "title": "title1", "desc": "desc1" }],
+    '2': [{ "title": "title2", "desc": "desc2" }],
+    '3': [{ "title": "title3", "desc": "desc3" }],
+    '4': [{ "title": "title4", "desc": "desc4" }],
+    '5': [{ "title": "title5", "desc": "desc5" }]
+  }
 
 
+  public json = [
+    { "host": 'abc', "name": 123, "id": 345 },
+    { "host": 'def', "name": 456, "id": 345 }
+  ]
+
+  buttonOnClick(event) {
+    console.log(event) // you will get the corresponding object from the array
+  }
 
   msg: string = 'Welcome to angular version 8'
 
@@ -68,7 +94,7 @@ export class HomeComponent implements OnInit {
   }
   // table data and modal
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.radiotitle = 'Radio Button in Angular'
     this.radioItems = ['option1', 'option2', 'option3', 'option4']
     this.gender = 'female'
@@ -77,6 +103,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
 
   // basic data
   title = 'angular-basic-project';

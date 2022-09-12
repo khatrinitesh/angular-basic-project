@@ -1,2 +1,80 @@
-<p>about works!</p>
+<input type="radio" name="option" value="male" [(ngModel)]="male" />
+<input type="radio" name="option" value="female" [(ngModel)]="female" />
+<div *ngIf="option == male">male</div>
+<div *ngIf="option == female">female</div>
+
+<div class="row">
+    <div [ngClass]="cssStringVar">nitedsh khatri</div>
+</div>
+
+<h1>Simple example of ngIf </h1>
+<div class="row">
+    Show <input type="checkbox" [(ngModel)]="showMe" />
+</div>
+<!-- <h1>ngIf </h1>
+<p *ngIf="showMe">
+    ShowMe is checked
+</p>
+<p *ngIf="!showMe">
+    ShowMe is unchecked
+</p> -->
+<!-- <h1>ngIf Else</h1>
+<p *ngIf="showMe;else elseBlock1">
+    Show me is checked
+</p>
+<ng-template #elseBlock1>
+    Show me is unchecked
+</ng-template> -->
+
+<!-- <h1>ngIf then else</h1>
+<p *ngIf="showMe; else elseBlock1">Show me is checked</p>
+<ng-template #elseBlock1>Show me is unchecked</ng-template> -->
+
+<p *ngIf="showMe; then thenBlock2 else elseBlock2">This is not rendered</p>
+<ng-template #thenBlock2>Show me is checked 1</ng-template>
+<ng-template #elseBlock2>Show me is unchecked </ng-template>
+
+
+<!-- <div *ngIf="isLoggedIn; else loggedOut">
+    Welcome back, friend.
+</div>
+
+<ng-template #loggedOut>
+    Please friend, login.
+</ng-template> -->
+
+<!-- <ng-template [ngIf]="nitesh" [ngIfElse]="sameet">
+    <div>nitesh</div>
+</ng-template>
+<ng-template #sameet>
+    <div>sameet</div>
+</ng-template> -->
+
+<ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut"></ng-container>
+
+<ng-template #loggedIn>
+    <div>nitesh</div>
+</ng-template>
+
+<ng-template #loggedOut>
+    <div>sameet</div>
+</ng-template>
+
+<div [hidden]="!isLoggedIn">
+    Welcome back, friend.
+</div>
+
+<hr />
+
+
+
+<app-child [inputFromParent]="inputText" (outputFromChild)="receiveChildData($event)"></app-child>
+<app-movie-dashboard></app-movie-dashboard>
+{{data}}
 <button class="btn btn-primary" (click)="btnNext()">Courses</button>
+
+<hr />
+<div *ngIf="isShow">
+    Start editing to see some magic happen :)
+</div>
+<button (click)="toggleStatus()">{{cond_val == true ? 'hide' : 'show'}}</button>

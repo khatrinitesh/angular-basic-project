@@ -1,0 +1,11 @@
+<p>movile-table works!</p>
+<table>
+    <tr>
+        <th>movie name</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor="let movie of movieList">
+        <td>{{movie}}</td>
+        <td><input type="button" value='select' (click)="movieSelected(movie)" /></td>
+    </tr>
+</table>
