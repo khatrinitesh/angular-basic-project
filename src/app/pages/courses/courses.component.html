@@ -1,2 +1,32 @@
+{{count}}
+<button (click)="sendData()">Send data P to child</button>
 <p>courses works!</p>
+<hr />
+Button in child component: <button class='btn btn-primary' (click)="valueChanged()">Click me</button>
+{{userName}}
 <button class="btn btn-success" (click)="btnPrev()">About</button>
+<div *ngFor="let status of statuses;let i =index">
+    <input name="statusGroup" type="radio" [id]='status' [value]='status' [(ngModel)]='maritalStatus.status' />
+    <label [for]="status">{{status}}</label>
+</div>
+
+{{maritalStatus.status}}
+
+
+<form [formGroup]="fg">
+    <label>
+        <input type="radio" formControlName="myRadio" value="blue" name="myRadio" />
+        Blue
+    </label>
+    <label>
+        <input type="radio" formControlName="myRadio" value="pink" name="myRadio" />
+        Pink
+    </label>
+    <label>
+        <input type="radio" formControlName="myRadio" value="green" name="myRadio" />
+        Green
+    </label>
+</form>
+
+{{fg.value | json}}
+<button (click)="toggle()">Toggle</button>

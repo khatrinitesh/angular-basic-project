@@ -13,7 +13,10 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'courses', component: CoursesComponent },
   { path: '404', component: ErrorComponent },
-  { path: '**', redirectTo: '/404' }
+  { path: '**', redirectTo: '/404' },
+  { path: 'emp/emp-create', loadChildren: () => import('./emp/emp-create/emp-create.module').then(m => m.EmpCreateModule) },
+  { path: 'emp/emp-edit', loadChildren: () => import('./emp/emp-edit/emp-edit.module').then(m => m.EmpEditModule) },
+  { path: 'emp/emp-list', loadChildren: () => import('./emp/emp-list/emp-list.module').then(m => m.EmpListModule) }
 
 ];
 

@@ -1,4 +1,132 @@
-<input type="radio" name="option" value="male" [(ngModel)]="male" />
+Show <input type="checkbox" [(ngModel)]="showMe" />
+<!-- <div *ngIf="showMe">
+    show me is checked
+</div>
+<div *ngIf="!showMe">
+    show me is unchecked
+</div> -->
+
+<p *ngIf="showMe;else elseBlock">
+    showme is checked
+</p>
+<ng-template #elseBlock>
+    <p>ShowMe is unchecked Using elseBlock</p>
+</ng-template>
+
+<!-- <p *ngIf="showMe;then thenBlock3 else elseBlock3">This is not rendered</p>
+<ng-template #thenBlock3>thenblock 3</ng-template>
+<ng-template #elseBlock3>elseBlock 3</ng-template> -->
+
+<p [hidden]="showMe">
+    content to render, when the condition is true using hidden property binding
+</p>
+
+<p [hidden]="!showMe">
+    content to render, when the condition is false. using hidden property binding
+</p>
+
+
+<!-- <div *ngIf="condition;then thenBlock else elseBlock">
+    This content is not shown
+</div>
+<ng-template #thenBlock>
+    content to render when the condition is true.
+</ng-template>
+<ng-template #elseBlock>
+    content to render when the condition is false.
+</ng-template> -->
+
+<!-- <hr /> -->
+
+<!-- <div *ngIf="condition;else elseBlock">
+    content to render, when the condition is true
+</div>
+<ng-template #condition>
+    content to render, when the condition is false
+</ng-template> -->
+
+<!-- <hr /> -->
+<!-- <p *ngIf="!condition">
+    content to render, when the condition is false
+</p> -->
+<ul>
+    <li *ngFor="let item of items">
+        {{item.name}}
+    </li>
+</ul>
+<button class="btn btn-warning" (click)="increment()">Increment</button>
+<button class="btn btn-warning" (click)="decrement()">decrement</button>
+<br />
+value increment in parent : {{parentCount}}
+<app-courses (valueChange)="displayCounter($event)" [count]="Counter" (parentComponent)="ParentComponent($event)">
+</app-courses>
+<hr />
+
+<label>
+    <input type="radio" [(ngModel)]="sh" [value]="0" name="sh" [checked]="isChecked" />
+    Nitesh
+</label>
+<label>
+    <input type="radio" [(ngModel)]="sh" [value]="1" name="sh" [checked]="isChecked" />
+    Gokul
+</label>
+<div class="text-center purple" *ngIf="sh == 1">Nitesh</div>
+<div class="text-center purple" *ngIf="sh == 0">Gokul</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.gender }}</td>
+            <td>
+                <input type="radio" name="radiogroup" [checked]="idx === 0" [value]="student.id"
+                    (change)="onSelectionChange(entry)">
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<select [(ngModel)]="selectedObject">
+    <option *ngFor="let cat of categories" [ngValue]="cat">
+        {{cat.name}}
+    </option>
+</select>
+
+<span class="d-block">{{selectedObject | json}}</span>
+
+<hr />
+
+<div *ngFor="let value of myArray;let i=index">
+    {{value}}
+    <button (click)="removeItem(i)">Remove</button>
+</div>
+
+
+<!-- <div *ngFor="let value of myArray;">
+    {{value.id}} {{value.name}}
+    <button (click)="removeItem(value)">Remove</button>
+</div> -->
+
+<!-- <h2>Life Cycle Hooks</h2>
+<button (click)="toggle()">hide/show chilsd</button>
+<app-courses [myValue]="hello" *ngIf="displayChild" [username]="myInputValue"></app-courses> -->
+<hr />
+
+<input type=" radio" name="option" value="male" [(ngModel)]="male" />
 <input type="radio" name="option" value="female" [(ngModel)]="female" />
 <div *ngIf="option == male">male</div>
 <div *ngIf="option == female">female</div>
